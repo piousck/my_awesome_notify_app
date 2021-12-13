@@ -1,6 +1,8 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:flutter/material.dart';
 
+import '../notifications.dart';
+
 class MyHome extends StatefulWidget {
   const MyHome({
     Key? key,
@@ -46,7 +48,10 @@ class _MyHomeState extends State<MyHome> {
         body: Center(
           child: ElevatedButton(
             child: Text("My Home"),
-            onPressed: () {},
+            onPressed: () {
+              createPlantFoodNotification;
+              print("object");
+            },
           ),
         ));
   }
