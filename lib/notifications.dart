@@ -2,21 +2,16 @@ import 'dart:math';
 
 import 'package:awesome_notifications/awesome_notifications.dart';
 
-Future<void>
-    createPlantFoodNotification() async {
-  await AwesomeNotifications()
-      .createNotification(
+Future<void> createPlantFoodNotification() async {
+  await AwesomeNotifications().createNotification(
     content: NotificationContent(
       id: Random().nextInt(999999999),
       channelKey: 'basic_channel',
       title:
           '${Emojis.money_money_bag + Emojis.plant_cactus} Buy Plant Food!!!',
-      body:
-          'Florist at 123 Main St. has 2 in stock.',
-      bigPicture:
-          'asset://assets/notification_map.png',
-      notificationLayout:
-          NotificationLayout.BigPicture,
+      body: 'Florist at 123 Main St. has 2 in stock.',
+      bigPicture: 'asset://assets/notification_map.png',
+      notificationLayout: NotificationLayout.BigPicture,
     ),
   );
 }

@@ -7,44 +7,32 @@ class MyHome extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<MyHome> createState() =>
-      _MyHomeState();
+  State<MyHome> createState() => _MyHomeState();
 }
 
-class _MyHomeState
-    extends State<MyHome> {
+class _MyHomeState extends State<MyHome> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    AwesomeNotifications()
-        .isNotificationAllowed()
-        .then((isAllowed) {
-      if (isAllowed) {
+    AwesomeNotifications().isNotificationAllowed().then((isAllowed) {
+      if (!isAllowed) {
         showDialog(
             context: context,
-            builder: (context) =>
-                AlertDialog(
-                  title: Text(
-                      "Allow Notifications"),
-                  content: Text(
-                      "Need Permissions"),
+            builder: (context) => AlertDialog(
+                  title: Text("Allow Notifications"),
+                  content: Text("Need Permissions"),
                   actions: [
                     TextButton(
                         onPressed: () {
-                          Navigator.pop(
-                              context);
+                          Navigator.pop(context);
                         },
-                        child: Text(
-                            "Dont Allow")),
+                        child: Text("Dont Allow")),
                     TextButton(
                         onPressed: () => AwesomeNotifications()
                             .requestPermissionToSendNotifications()
-                            .then((_) =>
-                                Navigator.pop(
-                                    context)),
-                        child: Text(
-                            "Allow Notification"))
+                            .then((_) => Navigator.pop(context)),
+                        child: Text("Allow Notification"))
                   ],
                 ));
       }
